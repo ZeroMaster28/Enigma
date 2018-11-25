@@ -2,25 +2,24 @@ package Frames;
 
 import javax.swing.*;
 import java.awt.*;
+import EnigmaMachine.Enigma;
 
 public class Lamps extends JPanel {
 
     private static final int TRANSLATION_OF_X=40;
     private static final int TRANSLATION_OF_Y=150;
-
+    private static final Font DEFAULT_FONT=new Font("Arial", Font.BOLD, 80);
+    private static final Color FONT_COLOR= new Color(30,30,30);
     private static final String LETTERS="QWERTYUIOPASDFGHJKLZXCVBNM";
     private static final int SIZE= 26;
 
+    private static Enigma currentEnigma;
     private Lamp[] lamps;
     private Background background=new Background();
 
-    private Font defaultFont=new Font("Arial", Font.BOLD, 80);
-    private Color FontColor= new Color(30,30,30);
-
-    public Lamps()
+    public Lamps(Enigma currentEnigma)
     {
-
-
+        this.currentEnigma=currentEnigma;
         Lamp[] lamps=new Lamp[26];
 
         for(int i=0;i<10;i++)
@@ -54,8 +53,9 @@ public class Lamps extends JPanel {
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         background.paintComponent(g2d);
-        g2d.setFont(defaultFont);
-        g2d.setColor(FontColor);
+        g2d.setFont(DEFAULT_FONT);
+        g2d.setColor(FONT_COLOR);
+
         int pom=0;//translation for letter like W,I,O,M
 
         for(int i=0;i<SIZE;i++) {
@@ -70,5 +70,6 @@ public class Lamps extends JPanel {
                 g2d.drawString(""+LETTERS.charAt(i),pom+lamps[i].getX()+25,lamps[i].getY()+75);
             }
         }
+        currentEnigma.draw(g2d);
     }
 }

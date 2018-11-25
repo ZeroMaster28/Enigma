@@ -2,6 +2,8 @@ package EnigmaMachine;
 
 import Frames.UtilityHelper;
 
+import java.awt.*;
+
 public class Enigma {
 
     private static final String ROTOR1= "EKMFLGDQVZNTOWYHXUSPAIBRCJr";
@@ -16,50 +18,65 @@ public class Enigma {
     private static final String REFLECTOR_MODEL_BD="AE,BN,CK,DQ,FU,GY,HW,IJ,LO,MP,RX,SZ,TV";
     private static final String REFLECTOR_MODEL_CD="AR,BD,CO,EJ,FN,GT,HK,IV,LM,PW,QZ,SX,UY";
 
-    private Rotor Current1, Current2, Current3;
+    private Rotor[] rotors;
     private Reflector CurrentReflector;
+    private int[] startPosition;
 
-    public Enigma(Rotor rotor1, Rotor rotor2, Rotor rotor3, Reflector reflector)
+    public Enigma(Reflector reflector,Rotor...rotors)
     {
         this.CurrentReflector=reflector;
-        this.Current1=rotor1;
-        this.Current2=rotor2;
-        this.Current3=rotor3;
-
+        this.rotors=rotors;
+        this.startPosition=new int[rotors.length];
     }
 
     public Enigma() //setting (000) BD,III,II,I
     {
-        this(new Rotor(ROTOR1),new Rotor(ROTOR2),new Rotor(ROTOR3),new Reflector(REFLECTOR_MODEL_BD));
+        this(new Reflector(REFLECTOR_MODEL_BD),new Rotor(ROTOR1),new Rotor(ROTOR2),new Rotor(ROTOR3));
 
     }
-
-    public void setEnigma(int a, int b, int c)
+    public void setEnigma(int...tab)
     {
-        Current1.setPosition(a);
-        Current2.setPosition(b);
-        Current3.setPosition(c);
+        if(tab==null) return;
+
+        startPosition=tab;
+        for (int i = 0; i < rotors.length; i++) {
+            rotors[i].setPosition(tab[i]);
+        }
+
     }
-
-    public char encrypt(char c)
+    public int encrypt(int n)
     {
-        Current1.turnover();
-        if(Current1.getNotch()==Current1.getPosition()) Current2.turnover();
-        if(Current2.getNotch()==Current2.getPosition()) Current3.turnover();
+        rotors[0].turnover();
 
-        int temp=UtilityHelper.charToInt(c);
+        for (int i = 0; i < rotors.length-1; i++) {
+            if(rotors[i].getNotch()==rotors[i].getPosition())rotors[i+1].turnover();
+            else break;
+        }
 
-        temp=Current1.work(temp);
-        temp=Current2.work(temp);
-        temp=Current3.work(temp);
+       int temp=n;
+
+        for (int i = 0; i < rotors.length; i++) {
+            temp=rotors[i].work(temp,false);
+        }
 
         temp=CurrentReflector.reflect(temp);
 
-        temp=Current3.work(temp);
-        temp=Current2.work(temp);
-        temp=Current1.work(temp);
+        for (int i = 0; i < rotors.length; i++) {
+            temp=rotors[rotors.length-1-i].work(temp,true);
+        }
+        return temp;
+    }
+    public void restartMachine()
+    {
+        for (int i = 0; i < rotors.length; i++) {
+            rotors[i].setPosition(startPosition[i]);
+        }
+    }
 
-        char result=UtilityHelper.intToChar(temp);
-        return result;
+    public void draw(Graphics2D g2d)
+    {
+        for (int i = 0; i < rotors.length; i++) {
+            rotors[i].draw(g2d);
+        }
     }
 }

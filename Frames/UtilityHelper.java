@@ -2,9 +2,10 @@ package Frames;
 
 public class UtilityHelper {
     private UtilityHelper(){};
-
+    static Character chr;
     static int transform(int i) //transforms received keyboard value to draw them on display keyboard
     {
+
         switch(i)
         {
             case 0: return 10;
@@ -47,12 +48,15 @@ public class UtilityHelper {
     }
     public static char intToChar(int n)
     {
+        if(n<0) n=26+n;
+        else;
         char c=(char)(n+97);
         return c;
     }
     public static int charToInt(char c)
     {
-        int n=((int)'a')-97;
+        c=chr.toLowerCase(c);
+        int n=((int)c)-97;
         return n;
     }
 
