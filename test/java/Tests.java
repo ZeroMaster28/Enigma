@@ -8,7 +8,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-
+import static org.junit.Assert.assertTrue;
 
 
 public class Tests {
@@ -65,18 +65,21 @@ public class Tests {
         {
             assertEquals(numbers_to_encrypt[i%numbers_to_encrypt.length],tab[i]);
         }
+        enigma[whichEnigma].restartMachine();
     }
 
     @Test
-    public void shouldSeeChanges()
+    public void shouldDrawSameWays()
     {
+        String expectedWay="a->j->b->d->q->y->v->m";
+        StringBuilder builder= new StringBuilder();
 
         while(true) {
             Enigma _enigma = enigma[which];
-            System.out.print(UtilityHelper.intToChar(LETTER_TO_ENCRYPT));
+            builder.append(UtilityHelper.intToChar(LETTER_TO_ENCRYPT));
 
             if (_enigma.rotors.length == 0) {
-                System.out.print("->" + UtilityHelper.intToChar(_enigma.CurrentReflector.reflect(LETTER_TO_ENCRYPT)));
+                builder.append("->" + UtilityHelper.intToChar(_enigma.CurrentReflector.reflect(LETTER_TO_ENCRYPT)));
                 break;
             }
 
@@ -91,19 +94,24 @@ public class Tests {
 
             for (int i = 0; i < _enigma.rotors.length; i++) {
                 temp = _enigma.rotors[i].work(temp, false);
-                System.out.print("->"+UtilityHelper.intToChar(temp));
+                builder.append("->"+UtilityHelper.intToChar(temp));
             }
 
             temp = _enigma.CurrentReflector.reflect(temp);
-            System.out.print("->"+UtilityHelper.intToChar(temp));
+            builder.append("->"+UtilityHelper.intToChar(temp));
 
             for (int i = 0; i < _enigma.rotors.length; i++) {
                 temp = _enigma.rotors[_enigma.rotors.length - 1 - i].work(temp, true);
-                System.out.print("->"+UtilityHelper.intToChar(temp));
+                builder.append("->"+UtilityHelper.intToChar(temp));
             }
             break;
         }
-        assertEquals(0l,0l);
+        String text=builder.toString();
+        System.out.println("Expected: "+expectedWay);
+        System.out.println("Got: "+text);
+
+        assertTrue(expectedWay.equals(text));
+
     }
 
     public static void generateLongerPlainText(int n)
