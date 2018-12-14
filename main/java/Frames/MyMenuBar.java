@@ -11,6 +11,7 @@ public class MyMenuBar {
     Enigma enigma;
     JFrame jFrame;
     JFrame settingsFrame;
+    JFrame helpFrame;
 
     JMenuItem exit=new JMenuItem(new AbstractAction("Exit") {
         public void actionPerformed(ActionEvent e) {
@@ -25,7 +26,7 @@ public class MyMenuBar {
     JMenuItem help=new JMenuItem(new AbstractAction("Help") {
         public void actionPerformed(ActionEvent e) {
 
-            //TO-DO some guide to enigma here
+            helpFrame.setVisible(true);
 
         }
     });
@@ -43,6 +44,7 @@ public class MyMenuBar {
         this.enigma=enigma;
         this.jFrame=jframe;
         this.settingsFrame=new SettingsFrame(this.enigma, this.jFrame);
+        this.helpFrame=new HelpFrame();
 
         JMenuBar menubar = new JMenuBar();
         JMenu menu = new JMenu("Menu");
