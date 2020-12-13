@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import enigmaMachine.Enigma;
 
-import view.elements.Lamps;
+import view.components.Lamps;
 import util.UtilityHelper;
 
 
