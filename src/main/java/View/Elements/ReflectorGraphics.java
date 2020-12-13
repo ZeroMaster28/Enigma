@@ -1,5 +1,7 @@
 package View.Elements;
 
+import util.ResourcePathHandler;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +15,7 @@ public class ReflectorGraphics extends JPanel {
     private static final Color DEFAULT_COLOR=new Color(30,30,30);
     private static BufferedImage reflectorImage;
     static{
-        File imageFile1=new File("src/main/resources/images/reflector.png");
+        File imageFile1=new File(ResourcePathHandler.getImagePath("reflector.png"));
         try {
             reflectorImage= ImageIO.read(imageFile1);
         } catch (IOException e) {
