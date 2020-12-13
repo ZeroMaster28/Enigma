@@ -25,11 +25,11 @@ public class Enigma {
     public Rotor[] rotors;
     public Reflector CurrentReflector;
     private Integer[] startPosition;
-    private TextGenerator textGenerator;
+    private OutputTextGenerator outputTextGenerator;
 
     public Enigma(Reflector reflector,Rotor...rotors)
     {
-        this.textGenerator=new TextGenerator();
+        this.outputTextGenerator =new OutputTextGenerator();
         this.CurrentReflector=reflector;
         this.rotors=rotors;
         this.startPosition=new Integer[rotors.length];
@@ -77,12 +77,12 @@ public class Enigma {
         for (int i = 0; i < rotors.length; i++) {
             temp=rotors[rotors.length-1-i].work(temp,true);
         }
-        textGenerator.writeDown(UtilityHelper.intToChar(temp));
+        outputTextGenerator.writeDown(UtilityHelper.intToChar(temp));
         return temp;
     }
     public void restartMachine()
     {
-        textGenerator.reset();
+        outputTextGenerator.reset();
         for (int i = 0; i < rotors.length; i++) {
             rotors[i].setPosition(startPosition[i]);
         }
@@ -137,7 +137,7 @@ public class Enigma {
 
     public void endWork()
     {
-        textGenerator.submit();
+        outputTextGenerator.submit();
         System.exit(0);
     }
 
