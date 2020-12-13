@@ -42,7 +42,7 @@ public class Lamps extends JPanel {
     }
 
 
-    void changeState(int n)
+    public void changeState(int n)
     {
         if(n<SIZE && n >=0)
         {
