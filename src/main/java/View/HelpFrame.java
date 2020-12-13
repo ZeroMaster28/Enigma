@@ -1,7 +1,6 @@
-package Frames;
+package View;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class HelpFrame extends JFrame {
     JLabel text= new JLabel();
