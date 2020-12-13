@@ -9,50 +9,57 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-/*
-This is the class for lamp image in our enigma machine.
+/**
+ * Image component representing Lamp
  */
-
 public class Lamp {
 
-    private boolean visibility=false; //whether light is on or off
-    private char letter; //letter on the lamp
+    /** Whether light is on or off */
+    private boolean visibility = false;
 
-    //coordinates
+    /** Character that is written on the lamp */
+    private final char letter;
+
+    /** Px coordinates for the component */
     private int x, y;
 
-    //images
+    /** Images for when the lamp is on or off */
     BufferedImage imageOn;
     BufferedImage imageOff;
 
-    public Lamp(String localization1, String localization2, char letter, int x , int y )
-    {
-
+    public Lamp(String lightOnFilename, String lightOffFilename, char letter, int x , int y ) {
+        this.letter = letter;
         setCoordinates(x,y);
-        this.letter=letter;
-        setImage(localization1,true);
-        setImage(localization2,false);
-
+        setImage(lightOnFilename,true);
+        setImage(lightOffFilename,false);
         BufferedImage image= visibility?imageOn:imageOff;
 
     }
 
+    /**
+     * Sets image for one of two lamp options
+     * @param localization image path
+     * @param visible is lamp on or off
+     */
     public void setImage(String localization, boolean visible)
     {
         File imageFile = new File(ResourcePathHandler.getImagePath(localization));
         try {
-             if(visible) imageOn= ImageIO.read(imageFile);
-             if(!visible) imageOff=ImageIO.read(imageFile);
-
+             if(visible) {
+                 imageOn = ImageIO.read(imageFile);
+             }
+             if(!visible) {
+                 imageOff = ImageIO.read(imageFile);
+             }
         } catch (IOException e) {
             System.err.println("Image could not be loaded.");
             e.printStackTrace();
         }
     }
 
-    public void setCoordinates(int x, int y)
-    {
-        if(x>=0&&y>=0) {
+    /** Sets coordinates of the component */
+    public void setCoordinates(int x, int y) {
+        if(x >= 0 && y>= 0) {
             this.x = x;
             this.y = y;
         }
@@ -62,22 +69,20 @@ public class Lamp {
         }
     }
 
-    public boolean isVisible()
-    {
+    public boolean isVisible() {
         return visibility;
     }
 
-    public int getX()
-    {
+    public int getX() {
         return this.x;
     }
-    public int getY()
-    {
+
+    public int getY() {
         return this.y;
     }
 
-    public void changeState()
-    {
-        visibility=!(visibility);
+    /** Changes state of the lamp i.e switch it on or off*/
+    public void changeState() {
+        visibility =! (visibility);
     }
 }
