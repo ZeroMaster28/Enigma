@@ -11,19 +11,24 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
+/**
+ * Class represents the application settings frame implementation
+ */
 public class SettingsFrame extends JFrame implements KeyListener {
 
+    /** The actual enigma */
     static Enigma enigma;
+
+    /** Application's main frame */
     static private JFrame mainFrame;
 
-    private JLabel[] rotorNumber=new JLabel[7];
-    private JLabel rotorIdentifier=new JLabel("Rotor"),rotorStartingPoint=new JLabel("Start  ");
+    private JLabel[] rotorsLabels =new JLabel[7];
+    private JLabel rotorIdentifier=new JLabel("Rotor"),rotorStartingPoint = new JLabel("Start  ");
     private JLabel reflectorIdentifier=new JLabel("Reflector");
 
-    private static int[] identifiers= new int[15];
-    static
-    {
-    SettingsFrame.nullifyIdentifiers();
+    private static int[] identifiers = new int[15];
+    static {
+        SettingsFrame.nullifyIdentifiers();
     }
     private static JComboBox<String>[] rotorsToChoose = new JComboBox[7];
     static
@@ -111,8 +116,8 @@ public class SettingsFrame extends JFrame implements KeyListener {
 
         this.setLayout(layout);
 
-        for (int i = 0; i < rotorNumber.length; i++) {
-            rotorNumber[i]=new JLabel(""+(i+1)+"  ");
+        for (int i = 0; i < rotorsLabels.length; i++) {
+            rotorsLabels[i]=new JLabel(""+(i+1)+"  ");
         }
 
 
@@ -131,7 +136,7 @@ public class SettingsFrame extends JFrame implements KeyListener {
             gbc.gridy =10+ 10*i;
 
             gbc.gridx=0;
-            this.add(rotorNumber[i], gbc);
+            this.add(rotorsLabels[i], gbc);
             gbc.gridx = 20;
             this.add(rotorsToChoose[i],gbc);
             gbc.gridx=21;
