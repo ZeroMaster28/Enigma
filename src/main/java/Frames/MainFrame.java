@@ -9,7 +9,7 @@ import EnigmaMachine.Enigma;
 import util.UtilityHelper;
 
 
-public class MyFrame extends JFrame implements KeyListener {
+public class MainFrame extends JFrame implements KeyListener {
 
 
     private boolean blocked=false;
@@ -19,7 +19,7 @@ public class MyFrame extends JFrame implements KeyListener {
     private Enigma enigma=new Enigma();
     private MyMenuBar menuBar;
 
-    public MyFrame() {
+    public MainFrame() {
         //setting the main frame
         super("Enigma 1.0");
         setSize(new Dimension(1290, 720));
