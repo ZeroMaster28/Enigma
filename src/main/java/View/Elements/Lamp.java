@@ -1,6 +1,8 @@
 package View.Elements;
 
 
+import util.ResourcePathHandler;
+
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
@@ -37,7 +39,7 @@ public class Lamp {
 
     public void setImage(String localization, boolean visible)
     {
-        File imageFile = new File(localization);
+        File imageFile = new File(ResourcePathHandler.getImagePath(localization));
         try {
              if(visible) imageOn= ImageIO.read(imageFile);
              if(!visible) imageOff=ImageIO.read(imageFile);

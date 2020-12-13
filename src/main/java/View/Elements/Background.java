@@ -1,5 +1,7 @@
 package View.Elements;
 
+import util.ResourcePathHandler;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +15,7 @@ public class Background extends JPanel {
     public Background()
     {
 
-        File imageFile = new File("background.jpg");
+        File imageFile = new File(ResourcePathHandler.getImagePath("background.jpg"));
         try
         {
              background=ImageIO.read(imageFile);

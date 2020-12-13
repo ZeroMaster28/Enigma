@@ -13,7 +13,7 @@ public class ReflectorGraphics extends JPanel {
     private static final Color DEFAULT_COLOR=new Color(30,30,30);
     private static BufferedImage reflectorImage;
     static{
-        File imageFile1=new File("reflector.png");
+        File imageFile1=new File("src/main/resources/images/reflector.png");
         try {
             reflectorImage= ImageIO.read(imageFile1);
         } catch (IOException e) {

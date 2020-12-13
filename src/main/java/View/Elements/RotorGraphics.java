@@ -2,6 +2,7 @@ package View.Elements;
 
 
 import EnigmaMachine.Enigma;
+import util.ResourcePathHandler;
 import util.UtilityHelper;
 
 import javax.imageio.ImageIO;
@@ -37,7 +38,7 @@ public class RotorGraphics extends JPanel {
 
 
     static {
-        File imageFile = new File("rotor.png");
+        File imageFile = new File(ResourcePathHandler.getImagePath("rotor.png"));
         try {
           image= ImageIO.read(imageFile);
 
