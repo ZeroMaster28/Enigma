@@ -1,7 +1,7 @@
-package EnigmaMachine;
+package enigmaMachine;
 
 import util.UtilityHelper;
-import View.Elements.RotorGraphics;
+import view.elements.RotorGraphics;
 
 import java.awt.*;
 

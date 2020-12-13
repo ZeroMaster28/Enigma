@@ -1,4 +1,4 @@
-package View.Elements;
+package view.elements;
 
 
 import util.ResourcePathHandler;

@@ -1,7 +1,7 @@
-package View.Elements;
+package view.elements;
 
 
-import EnigmaMachine.Enigma;
+import enigmaMachine.Enigma;
 import util.ResourcePathHandler;
 import util.UtilityHelper;
 

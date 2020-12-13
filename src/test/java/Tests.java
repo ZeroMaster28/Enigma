@@ -1,4 +1,4 @@
-import EnigmaMachine.Enigma;
+import enigmaMachine.Enigma;
 
 
 

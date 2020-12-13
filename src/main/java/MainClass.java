@@ -1,4 +1,4 @@
-import View.Frames.MainFrame;
+import view.frames.MainFrame;
 
 import java.awt.EventQueue;
 

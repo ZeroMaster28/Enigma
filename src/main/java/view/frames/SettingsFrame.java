@@ -1,6 +1,6 @@
-package View.Frames;
+package view.frames;
 
-import EnigmaMachine.Enigma;
+import enigmaMachine.Enigma;
 import util.UtilityHelper;
 
 import javax.swing.*;

@@ -1,8 +1,8 @@
-package View.Elements;
+package view.elements;
 
 import javax.swing.*;
 import java.awt.*;
-import EnigmaMachine.Enigma;
+import enigmaMachine.Enigma;
 import util.UtilityHelper;
 public class Lamps extends JPanel {
 

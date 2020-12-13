@@ -1,4 +1,4 @@
-package EnigmaMachine;
+package enigmaMachine;
 
 
 import java.io.PrintWriter;
