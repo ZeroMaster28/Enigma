@@ -24,17 +24,17 @@ public class Lamps extends JPanel {
 
         for(int i=0;i<10;i++)
         {
-            lamps[i]=new Lamp("a1.png","a2.png",'x',TRANSLATION_OF_X+10+120*i,TRANSLATION_OF_Y+20);
+            lamps[i]=new Lamp("light_on.png","light_off.png",'x',TRANSLATION_OF_X+10+120*i,TRANSLATION_OF_Y+20);
 
         }
         for(int i=10;i<19;i++)
         {
-            lamps[i]=new Lamp("a1.png","a2.png",'x',TRANSLATION_OF_X+60+120*(i-10),TRANSLATION_OF_Y+150);
+            lamps[i]=new Lamp("light_on.png","light_off.png",'x',TRANSLATION_OF_X+60+120*(i-10),TRANSLATION_OF_Y+150);
 
         }
         for(int i=19;i<26;i++)
         {
-            lamps[i]=new Lamp("a1.png","a2.png",'x',TRANSLATION_OF_X+180+120*(i-19),TRANSLATION_OF_Y+280);
+            lamps[i]=new Lamp("light_on.png","light_off.png",'x',TRANSLATION_OF_X+180+120*(i-19),TRANSLATION_OF_Y+280);
 
         }
 
