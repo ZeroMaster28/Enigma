@@ -1,7 +1,7 @@
 package Frames;
 
 import EnigmaMachine.Enigma;
-import ProjectPackage1.UtilityHelper;
+import util.UtilityHelper;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,10 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-
-import static java.awt.GridBagConstraints.LINE_END;
-import static java.awt.GridBagConstraints.LINE_START;
-import static java.awt.Label.CENTER;
 
 public class SettingsFrame extends JFrame implements KeyListener {
 

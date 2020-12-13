@@ -1,6 +1,6 @@
 package EnigmaMachine;
 
-import ProjectPackage1.UtilityHelper;
+import util.UtilityHelper;
 import Frames.RotorGraphics;
 
 import java.awt.*;

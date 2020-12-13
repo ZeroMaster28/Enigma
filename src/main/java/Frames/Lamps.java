@@ -3,7 +3,7 @@ package Frames;
 import javax.swing.*;
 import java.awt.*;
 import EnigmaMachine.Enigma;
-import ProjectPackage1.UtilityHelper;
+import util.UtilityHelper;
 public class Lamps extends JPanel {
 
     private static final int TRANSLATION_OF_X=40;

@@ -1,5 +1,3 @@
-package ProjectPackage1;
-
 import Frames.MyFrame;
 
 import java.awt.EventQueue;
@@ -9,7 +7,6 @@ public class MainClass {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MyFrame();
-
             }
         });
     }

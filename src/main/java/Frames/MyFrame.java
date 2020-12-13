@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import EnigmaMachine.Enigma;
 
-import ProjectPackage1.UtilityHelper;
+import util.UtilityHelper;
 
 
 public class MyFrame extends JFrame implements KeyListener {

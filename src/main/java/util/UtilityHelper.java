@@ -1,4 +1,4 @@
-package ProjectPackage1;
+package util;
 
 public class UtilityHelper {
     private UtilityHelper(){};

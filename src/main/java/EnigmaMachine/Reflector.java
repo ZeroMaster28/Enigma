@@ -2,7 +2,7 @@ package EnigmaMachine;
 
 import Frames.ReflectorGraphics;
 import Frames.RotorGraphics;
-import ProjectPackage1.UtilityHelper;
+import util.UtilityHelper;
 
 import java.awt.*;
 

@@ -2,7 +2,7 @@ package Frames;
 
 
 import EnigmaMachine.Enigma;
-import ProjectPackage1.UtilityHelper;
+import util.UtilityHelper;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

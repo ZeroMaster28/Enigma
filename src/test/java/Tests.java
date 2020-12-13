@@ -2,7 +2,7 @@ import EnigmaMachine.Enigma;
 
 
 
-import ProjectPackage1.UtilityHelper;
+import util.UtilityHelper;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
