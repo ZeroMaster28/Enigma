@@ -1,4 +1,4 @@
-package View;
+package View.Frames;
 
 import EnigmaMachine.Enigma;
 

@@ -1,4 +1,4 @@
-package View;
+package View.Frames;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -6,6 +6,7 @@ import javax.swing.*;
 
 import EnigmaMachine.Enigma;
 
+import View.Elements.Lamps;
 import util.UtilityHelper;
 
 
