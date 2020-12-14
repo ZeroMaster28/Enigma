@@ -26,7 +26,7 @@ public class Rotor {
     /** Rotor's current position */
     private int position = 0;
 
-    
+
     public Rotor(String string) {
         rotorGraphics= new RotorGraphics(0);
         permutation = new int[26];

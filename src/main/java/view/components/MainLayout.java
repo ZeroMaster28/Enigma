@@ -6,9 +6,9 @@ import enigmaMachine.Enigma;
 import util.UtilityHelper;
 
 /**
- * Class represents layout for the lamp components
+ * Class represents layout for the application
  */
-public class Lamps extends JPanel {
+public class MainLayout extends JPanel {
 
     /** Initial layout translations */
     private static final int TRANSLATION_OF_X = 40;
@@ -25,22 +25,21 @@ public class Lamps extends JPanel {
     private static final int SIZE= 26;
 
     /** Enigma implementation that has impact on this layout's lamps changing states */
-    private Enigma currentEnigma;
+    private final Enigma currentEnigma;
 
     /** Lamps of the layout */
-    private Lamp[] lamps;
+    private final Lamp[] lamps;
 
     /** Layout background image component */
-    private Background background=new Background();
+    private final Background background = new Background();
 
 
-    public Lamps(Enigma currentEnigma) {
+    public MainLayout(Enigma currentEnigma) {
         this.currentEnigma=currentEnigma;
         this.lamps = new Lamp[26];
         for(int i=0; i<10; i++) {
             lamps[i]=new Lamp("light_on.png","light_off.png",'x',
                     TRANSLATION_OF_X+10+120*i,TRANSLATION_OF_Y+20);
-
         }
         for(int i=10;i<19;i++) {
             lamps[i]=new Lamp("light_on.png","light_off.png",'x',
@@ -62,7 +61,7 @@ public class Lamps extends JPanel {
         }
     }
 
-    /** Printing the lamps layout */
+    /** Printing the whole layout */
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         background.paintComponent(g2d);

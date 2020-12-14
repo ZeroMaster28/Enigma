@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import enigmaMachine.Enigma;
 
-import view.components.Lamps;
+import view.components.MainLayout;
 import util.UtilityHelper;
 
 /**
@@ -17,8 +17,8 @@ public class MainFrame extends JFrame implements KeyListener {
     /** Frame resolution */
     private static final int FRAME_SIZE_X = 1290, FRAME_SIZE_Y = 720;
 
-    /** Lamps layout */
-    private final Lamps lamps;
+    /** GUI layout */
+    private final MainLayout mainLayout;
 
     /** The actual enigma implementation */
     private final Enigma enigma;
@@ -38,9 +38,9 @@ public class MainFrame extends JFrame implements KeyListener {
         //setting the main frame crucial attributes
         super("Enigma 1.0");
         enigma = new Enigma();
-        lamps = new Lamps(enigma);
+        mainLayout = new MainLayout(enigma);
         menuBar = new MyMenuBar(this, enigma);
-        add(lamps);
+        add(mainLayout);
 
         //setting the main frame visualisation
         setSize(new Dimension(FRAME_SIZE_X, FRAME_SIZE_Y));
@@ -82,7 +82,7 @@ public class MainFrame extends JFrame implements KeyListener {
         }
         if(blocked && evt.getKeyCode() == lastKeyCode) {
             blocked = false;
-            lamps.changeState(UtilityHelper.transform(keyAfterEncryption));
+            mainLayout.changeState(UtilityHelper.transform(keyAfterEncryption));
             repaint();
             return;
         }
@@ -90,7 +90,7 @@ public class MainFrame extends JFrame implements KeyListener {
             blocked=true;
             lastKeyCode=evt.getKeyCode();
             keyAfterEncryption=enigma.encrypt(lastKeyCode - 65);
-            lamps.changeState(UtilityHelper.transform(keyAfterEncryption));
+            mainLayout.changeState(UtilityHelper.transform(keyAfterEncryption));
             repaint();
         }
     }
