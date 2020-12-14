@@ -1,11 +1,14 @@
 package util;
 
+/**
+ * Utility helper class for mapping between ASCII codes and keyboard keys positions
+ */
 public class UtilityHelper {
-    private UtilityHelper(){};
-    static Character chr;
-    public static int transform(int i) //transforms received keyboard value to draw them on display keyboard
-    {
 
+    private UtilityHelper(){};
+
+    public static int transform(int i) {
+        //transforms received keyboard value to draw them on display keyboard
         switch(i)
         {
             case 0: return 10;
@@ -37,27 +40,24 @@ public class UtilityHelper {
             default: return -1;
         }
     }
-    public static int transformLetterInString(int i)
-    {
+
+    public static int transformLetterInString(int i) {
         if(i==1) return -12;
         if(i==7) return 16;
         if(i==8) return -5;
         if(i==25) return -7;
-
         return 0;
     }
-    public static char intToChar(int n)
-    {
-        if(n<0) n=26+n;
-        else;
-        char c=(char)(n+97);
-        return c;
-    }
-    public static int charToInt(char c)
-    {
-        c=chr.toLowerCase(c);
-        int n=((int)c)-97;
-        return n;
+
+    public static char intToChar(int n) {
+        if(n<0) {
+            n = 26 + n;
+        }
+        return (char)(n+97);
     }
 
+    public static int charToInt(char c) {
+        c = Character.toLowerCase(c);
+        return ((int) c) - 97;
+    }
 }
