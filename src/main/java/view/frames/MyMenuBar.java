@@ -56,8 +56,8 @@ public class MyMenuBar {
         // initializing the attributes
         this.enigma = enigma;
         this.appMainFrame = appMainFrame;
-        this.settingsFrame=new SettingsFrame(this.enigma, this.appMainFrame);
-        this.helpFrame=new HelpFrame();
+        this.settingsFrame = new SettingsFrame(this.enigma, this.appMainFrame);
+        this.helpFrame = new HelpFrame();
 
         // creating the actual menu bar for the main frame
         JMenuBar menuBar = new JMenuBar();
