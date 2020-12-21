@@ -1,6 +1,6 @@
 package view.components;
 
-import util.ResourcePathHandler;
+import util.ImagesPathHandler;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -21,7 +21,7 @@ public class ReflectorGraphics extends JPanel {
     /** Reflector component image */
     private static BufferedImage reflectorImage;
     static{
-        File imageFile1=new File(ResourcePathHandler.getImagePath("reflector.png"));
+        File imageFile1=new File(ImagesPathHandler.getImagePath("reflector.png"));
         try {
             reflectorImage = ImageIO.read(imageFile1);
         } catch (IOException e) {
