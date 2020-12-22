@@ -19,8 +19,7 @@ public class HelpFrame extends JFrame {
             "(order and starting point). Rotors, thanks to movement system, create additional \n   " +
             "Caesar cipher between each other. Remember to restart machine " +
             "when you want to start something new or at least save current position. \n  " +
-            "Please be careful with restarts since " +
-            "this function in fact creates new cipher texts in txt format. Enjoy!</html>");
+            "Enjoy!</html>");
         this.add(label);
     }
 }
