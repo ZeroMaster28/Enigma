@@ -1,7 +1,7 @@
 package view.components;
 
 
-import util.ImagesPathHandler;
+import util.ImageLoader;
 
 import java.awt.image.BufferedImage;
 
@@ -43,13 +43,12 @@ public class Lamp {
      */
     public void setImage(String localization, boolean visible)
     {
-        File imageFile = new File(ImagesPathHandler.getImagePath(localization));
         try {
              if(visible) {
-                 imageOn = ImageIO.read(imageFile);
+                 imageOn = ImageLoader.getInstance().loadImage(localization);
              }
              if(!visible) {
-                 imageOff = ImageIO.read(imageFile);
+                 imageOff = ImageLoader.getInstance().loadImage(localization);
              }
         } catch (IOException e) {
             System.err.println("Image could not be loaded.");

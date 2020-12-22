@@ -2,7 +2,7 @@ package view.components;
 
 
 import enigmaMachine.Enigma;
-import util.ImagesPathHandler;
+import util.ImageLoader;
 import util.UtilityHelper;
 
 import javax.imageio.ImageIO;
@@ -40,9 +40,8 @@ public class RotorGraphics extends JPanel {
     static BufferedImage image;
 
     static {
-        File imageFile = new File(ImagesPathHandler.getImagePath("rotor.png"));
         try {
-          image = ImageIO.read(imageFile);
+          image = ImageLoader.getInstance().loadImage("rotor.png");
         } catch (IOException e) {
             System.err.println("Image could not be loaded.");
             e.printStackTrace();

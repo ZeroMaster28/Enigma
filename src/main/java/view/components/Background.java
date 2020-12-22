@@ -1,6 +1,6 @@
 package view.components;
 
-import util.ImagesPathHandler;
+import util.ImageLoader;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -18,9 +18,8 @@ public class Background extends JPanel {
 
 
     public Background() {
-        File imageFile = new File(ImagesPathHandler.getImagePath("background.jpg"));
         try {
-             background = ImageIO.read(imageFile);
+             background = ImageLoader.getInstance().loadImage("background.jpg");
         } catch (IOException e) {
             System.err.println("Image could not be loaded.");
             e.printStackTrace();
